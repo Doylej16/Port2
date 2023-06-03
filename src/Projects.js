@@ -5,8 +5,8 @@ const Projects = () => {
   const projects = [
     {
       title: 'Capstone Project',
-      description: 'My capstone project is a web application that...',
-      deploymentLink: 'https://your-capstone-app.com', // Replace with your deployment link
+      description: 'My capstone project is a web application that caters to the marvel fanbase built with React...',
+      deploymentLink: 'https://the-world-of-marvel2.vercel.app/',
     },
     {
       title: 'Project 1',
@@ -22,7 +22,7 @@ const Projects = () => {
     },
     {
       title: 'Project 2',
-      description: 'The CPR Instructor Application is a web platform built with React, Redux...',
+      description: 'The CPR Instructor Application is a web platform built with React...',
       githubLink: 'https://github.com/Doylej16/CPR-Instructor-Application',
       screenshots: [
         '/screenshot1.png',
@@ -41,14 +41,16 @@ const Projects = () => {
         <div className="project-list">
           {projects.map((project, index) => (
             <div key={index} className="project">
-              <h3>{project.title}</h3>
+              <div className="project-header">
+                <h3>{project.title}</h3>
+                {project.deploymentLink && (
+                  <a href={project.deploymentLink} target="_blank" rel="noopener noreferrer">View Deployment</a>
+                )}
+                {project.githubLink && (
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GitHub</a>
+                )}
+              </div>
               <p>{project.description}</p>
-              {project.deploymentLink && (
-                <a href={project.deploymentLink} target="_blank" rel="noopener noreferrer">View Deployment</a>
-              )}
-              {project.githubLink && (
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer">GitHub</a>
-              )}
               <div className="screenshots">
                 {project.screenshots && project.screenshots.map((screenshot, idx) => (
                   <img
